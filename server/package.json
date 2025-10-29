@@ -1,0 +1,22 @@
+{
+  "name": "team_vault-server",
+  "version": "1.0.0",
+  "description": "A secure team communication hub built with MERN stack and JWT authentication",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Ayelson",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
