@@ -4,6 +4,8 @@ import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoutes.js';
+import vaultRoutes from './routes/vaultRoutes.js';
+
 
 
 
@@ -28,5 +30,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Team Vault API!");
 });
 app.use('/api/auth', authRoutes);
+app.use('/api/vault', vaultRoutes);
 
 app.listen(PORT, () => console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
