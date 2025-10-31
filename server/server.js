@@ -5,6 +5,7 @@ import helmet from "helmet";
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoutes.js';
 import vaultRoutes from './routes/vaultRoutes.js';
+import teamRoutes from './routes/teamRoutes.js';
 import rateLimit from 'express-rate-limit';
 
 
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/vault', vaultRoutes);
+app.use('/api/team', teamRoutes);
 
 //error
 app.use((err, req, res, next) => {
