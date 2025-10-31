@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "Name is required"],
       trim: true,
@@ -48,5 +48,5 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const user = mongoose.model("User", userSchema);
-export default user;
+const User = mongoose.model("User", userSchema);
+export default User;
