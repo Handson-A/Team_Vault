@@ -1,6 +1,7 @@
 import express from 'express';
 import { protect } from '../middleware/authMiddleware.js';
 import { createTeam, getUserTeams, addMember, removeMember } from '../controllers/teamController.js';
+import teamVaultRoutes from './teamVaultRoutes.js';
 
 const router = express.Router();
 
@@ -11,9 +12,12 @@ router.post('/', protect, createTeam);
 router.get('/', protect, getUserTeams);
 
 // Add member by email
-router.post('/:id/add-member', protect, addMember);
+router.post('/:teamId/add-member', protect, addMember);
 
 // Remove member (optional)
-router.delete('/:id/remove-member', protect, removeMember);
+router.delete('/:teamId/remove-member', protect, removeMember);
+
+// Nested shared vault routes: /api/team/:teamId/vault/
+router.use('/:teamId/vault', teamVaultRoutes);
 
 export default router;

@@ -30,7 +30,7 @@ export const getUserTeams = async (req, res) => {
 // Add member by email. Only team owner (createdBy) or admin can add members.
 export const addMember = async (req, res) => {
   try {
-    const teamId = req.params.id;
+  const teamId = req.params.teamId || req.params.id;
     const { email } = req.body || {};
     if (!email) return res.status(400).json({ msg: 'Email is required' });
 
@@ -66,7 +66,7 @@ export const addMember = async (req, res) => {
 // Remove member. Only owner can remove. Prevent removing owner.
 export const removeMember = async (req, res) => {
   try {
-    const teamId = req.params.id;
+  const teamId = req.params.teamId || req.params.id;
     const { userId } = req.body || {};
     if (!userId) return res.status(400).json({ msg: 'userId is required' });
 

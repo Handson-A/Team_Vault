@@ -31,6 +31,15 @@ app.use(helmet()); // Security headers
 app.use(cors());
 app.use(express.json());
 
+// JSON parse error handler: return 400 for invalid/malformed JSON instead of crashing
+app.use((err, req, res, next) => {
+  if (err && err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    console.error('Invalid JSON payload:', err.message);
+    return res.status(400).json({ msg: 'Invalid JSON payload' });
+  }
+  next();
+});
+
 app.use(limiter);
 
 // routes
@@ -39,6 +48,7 @@ app.get("/", (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/vault', vaultRoutes);
+app.use('/api/team', teamRoutes);
 app.use('/api/team', teamRoutes);
 
 //error

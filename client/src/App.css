@@ -1,38 +1,162 @@
-.App {
+/* Full page centering */
+.container {
+  width: 400px;
+  margin: 120px auto;
+  background: #fff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.container h2 {
   text-align: center;
+  margin-bottom: 25px;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Form styling */
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+/* Inputs */
+.form input {
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+}
+
+.form input:focus {
+  border-color: #4a8df7;
+}
+
+/* Buttons */
+button {
+  padding: 13px;
+  background: #4a8df7;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+button:hover {
+  background: #2564d9;
+}
+
+/* DASHBOARD */
+.dashboard-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 75vh;
 }
 
-.App-link {
-  color: #61dafb;
+.dashboard-card {
+  width: 70%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-btn {
+  background: #4a8df7;
+  border: none;
+  padding: 10px 18px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background: #2564d9;
+}
+
+.message-list {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  background: #f7f9fc;
+  min-height: 180px;
+}
+
+.empty {
+  color: #6b6b6b;
+  text-align: center;
+  margin-top: 60px;
+}
+/* LOGIN PAGE BACKGROUND */
+.login-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Transparent card floating on image */
+.login-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 35px;
+}
+/* REGISTER PAGE BACKGROUND */
+.register-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Transparent card for register */
+.register-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 35px;
+  border-radius: 12px;
+}
+/* DASHBOARD BACKGROUND */
+.dashboard-bg {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dashboard card styled to stand out from background */
+.dashboard-card {
+  width: 70%;
+  background: rgba(255, 255, 255, 0.85); /* transparency */
+  backdrop-filter: blur(6px);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
