@@ -5,31 +5,33 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: [true, "Name is required"],
+      required: [true, "Username is required"],
+      unique: true,
       trim: true,
     },
     email: {
       type: String,
       required: [true, "Email is required"],
       unique: true,
-      match: [/.+\@.+\..+/, "Enter a valid email address"],
+      lowercase: true,
+      trim: true,
+      match: [/^\S+@\S+\.\S+$/, "Enter a valid email address"],
     },
     password: {
       type: String,
       required: [true, "Password is required"],
-      minlength: 8,
+      minlength: [6, "Password must be at least 6 characters"],
     },
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
     },
-    // Extra security fields
     twoFactorEnabled: {
       type: Boolean,
       default: false,
     },
-    backupCodes: [String], // optional 2FA recovery codes
+    backupCodes: [String],
     lastLogin: Date,
   },
   { timestamps: true }
