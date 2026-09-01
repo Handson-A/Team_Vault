@@ -1,0 +1,344 @@
+.vault-page {
+  padding: 32px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vault-header-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+
+.vault-title-area h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  word-break: break-word;
+}
+
+.vault-item-count {
+  font-size: 0.8rem;
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.vault-meta-info {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  word-break: break-word;
+}
+
+/* Add Secret Card Form */
+.add-secret-card {
+  background-color: var(--bg-main);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.secret-form-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.secret-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* Vault Feed */
+.vault-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.vault-item-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  width: 100%;
+  overflow: hidden;
+}
+
+.vault-item-card:hover {
+  border-color: #64748b;
+  transform: translateY(-2px);
+}
+
+.vault-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.vault-item-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vault-item-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+.vault-item-meta {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.vault-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Secret Content Display & Masking */
+.secret-content-container {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.secret-value-wrapper {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+.secret-value-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #38bdf8;
+  word-break: break-all;
+  user-select: text;
+  display: block;
+}
+
+.secret-value-masked {
+  font-family: monospace;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  user-select: none;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.secret-toggle-btn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.secret-toggle-btn:hover {
+  color: var(--text-main);
+  border-color: #94a3b8;
+}
+
+/* Pagination Bar */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.vault-empty-state {
+  background-color: var(--bg-main);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 40px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.vault-empty-icon {
+  font-size: 2.5rem;
+  color: var(--text-muted);
+}
+
+/* TABLET (481px - 1024px) */
+@media (max-width: 1024px) {
+  .vault-page {
+    padding: 20px 16px;
+  }
+  .vault-header-card {
+    padding: 20px;
+  }
+}
+
+/* MOBILE (<= 640px) */
+@media (max-width: 640px) {
+  .vault-page {
+    padding: 14px 10px;
+    gap: 16px;
+  }
+
+  .vault-header-card {
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vault-header-card button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .vault-title-area h1 {
+    font-size: 1.3rem;
+  }
+
+  .add-secret-card {
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+  }
+
+  .secret-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .secret-form-actions {
+    flex-direction: column;
+  }
+
+  .secret-form-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .vault-item-card {
+    padding: 14px 10px;
+  }
+
+  .vault-item-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .vault-item-actions {
+    justify-content: flex-end;
+    width: 100%;
+    border-top: 1px solid rgba(71, 85, 105, 0.3);
+    padding-top: 8px;
+  }
+
+  .secret-content-container {
+    padding: 8px 10px;
+  }
+}
+
+/* SMALL MOBILE (<= 360px - e.g. 320px) */
+@media (max-width: 360px) {
+  .vault-page {
+    padding: 10px 6px;
+  }
+
+  .vault-title-area h1 {
+    font-size: 1.15rem;
+  }
+
+  .vault-item-title {
+    font-size: 0.95rem;
+  }
+
+  .pagination-bar {
+    gap: 8px;
+  }
+
+  .pagination-bar button {
+    padding: 5px 10px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .pagination-info {
+    font-size: 0.75rem;
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+}

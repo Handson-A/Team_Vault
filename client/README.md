@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Team Vault - Frontend Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This directory contains the production-ready React client application for Team Vault.
+
+---
+
+## Overview
+
+The Team Vault frontend provides an intuitive, responsive interface for managing team workspaces and securely storing credentials. Key interface capabilities include:
+- Split-card authentication screens with validation and error feedback.
+- Persistent navigation header with user profile identification and mobile drawer.
+- Team workspace management sidebar with team creation, join codes, and member management.
+- Team secrets vault with category tags (Password, API Key, Note, File Link, Other).
+- Secret masking toggle with eye icons and one-click clipboard copying with visual confirmation.
+- Responsive pagination controls.
+
+---
+
+## Tech Stack
+
+- **Framework:** React 19 (`react`, `react-dom`)
+- **Routing:** React Router v7 (`react-router-dom`)
+- **Icons:** Lucide React (`lucide-react`)
+- **Styling:** Pure Vanilla CSS (CSS variables, CSS Grid, Flexbox, media queries; no Tailwind or Bootstrap)
+- **State Management:** React Context API (`AuthContext`, `TeamContext`, `VaultContext`)
+- **HTTP Client:** Native Fetch API client with credentials support (`api/client.js`)
+
+---
+
+## Directory Map
+
+```
+client/src/
+|-- api/
+|   `-- client.js             # Centralized Fetch API client with error handling
+|-- components/
+|   |-- Navbar.jsx            # Top navigation bar with user avatar & mobile menu
+|   `-- ProtectedRoute.jsx    # Route guard redirecting unauthenticated users
+|-- context/
+|   |-- AuthContext.jsx       # User authentication and session persistence state
+|   |-- TeamContext.jsx       # Team workspaces, member management, and join code state
+|   `-- VaultContext.jsx      # Secret storage, filtering, and pagination state
+|-- pages/
+|   |-- Login.jsx             # User login page
+|   |-- Register.jsx          # User registration page
+|   |-- TeamDashboard.jsx     # Workspace switcher and team overview
+|   `-- TeamVault.jsx         # Secrets vault list, creation form, and mask toggles
+|-- styles/
+|   |-- auth.css              # Styling for login and registration views
+|   |-- dashboard.css         # Styling for team dashboard and workspace sidebar
+|   |-- globals.css           # Global variables, color tokens, and utility classes
+|   |-- layout.css            # Navigation, layout wrappers, and modal windows
+|   `-- vault.css             # Secret cards, feed, category badges, and masking
+|-- App.js                    # Application router and global context provider wrapper
+|-- index.css                 # Base document typography rules
+`-- index.js                  # React DOM root entry point
+```
+
+---
+
+## Environment Configuration
+
+Configure `REACT_APP_API_URL` in `client/.env`:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+A template file is available at `client/.env.example`.
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the `client/` directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the app in development mode on `http://localhost:3000`.
 
 ### `npm run build`
+Builds the app for production to the `build/` directory with optimized bundles.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm test`
+Runs the test runner if tests are defined.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Styling Principles
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Design Tokens:** All colors, radius values, shadows, and transitions are defined in `client/src/styles/globals.css` using CSS custom properties (`var(--primary)`, `var(--bg-dark)`, etc.).
+2. **Framework Independence:** No external CSS frameworks (Tailwind, Bootstrap) are used.
+3. **Accessibility:** All icon buttons include `aria-label` or `title` attributes for screen readers.
